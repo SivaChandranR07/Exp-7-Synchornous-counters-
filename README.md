@@ -46,15 +46,47 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Create a new project in Quartus|| Software.
 
+2.Name the project as upc and downc for up and down counter.
+
+3.Create a new verilog hdl file in the project file.
+
+4.Within that file write the program for up and down counter
+
+5.After that run the program and give the clock pulse value as 50 in timing diagram and run the program.
 
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Siva Chandran R
+RegisterNumber: 212222240099
+UPCOUNTER:
+module upc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+		A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+		A[1]=(((A[2])&(A[3]))^A[1]);
+		A[2]=((A[3])^A[2]);
+		A[3]=1^A[3];
+end
+endmodule
+
+DOWNCOUNTER:
+module downc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+	A[0]=((((~A[1])&(~A[2]))&A[3])^A[0]);
+	A[1]=(((~A[2])&(~A[3]))^A[1]);
+	A[2]=((~A[3])^A[2]);
+	A[3]=1^A[3];
+end
+endmodule
 */
 
 
@@ -64,25 +96,32 @@ RegisterNumber:
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+![up1](https://github.com/SivaChandranR07/Exp-7-Synchornous-counters-/assets/113497395/08cda2c8-8079-453d-b44b-7b76dc3855d6)
 
 
 
 
+![down1](https://github.com/SivaChandranR07/Exp-7-Synchornous-counters-/assets/113497395/09f8f3f0-9819-4e04-9eab-e49c7b31a8dc)
 
 
 
 
 ### TIMING DIGRAMS FOR COUNTER  
 
+![td1](https://github.com/SivaChandranR07/Exp-7-Synchornous-counters-/assets/113497395/467891cd-ca64-4159-a603-d59e92a6907c)
 
 
+![td2](https://github.com/SivaChandranR07/Exp-7-Synchornous-counters-/assets/113497395/f364a40a-6e50-40db-9456-76134551baa9)
 
 
 ### TRUTH TABLE 
 
+![tt1](https://github.com/SivaChandranR07/Exp-7-Synchornous-counters-/assets/113497395/62ee6ad3-ee88-4d1c-9ee1-b85b4627e39d)
 
+![tt2](https://github.com/SivaChandranR07/Exp-7-Synchornous-counters-/assets/113497395/7c681903-658f-4e27-aef1-87494b93943f)
 
 
 
 
 ### RESULTS 
+Thus,the program for counters is successfully executed.
